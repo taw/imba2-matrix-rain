@@ -1,11 +1,16 @@
 {
-  "name": "imba2-rotn",
+  "name": "imba2-matrix-rain",
   "scripts": {
     "start": "imba -w server.imba",
-    "build": "imba build server.imba"
+    "build": "imba build -H --baseurl . server.imba",
+    "predeploy": "npm run build && touch dist/public/.nojekyll",
+    "deploy": "gh-pages -d dist/public --dotfiles"
   },
   "dependencies": {
     "express": "^4.17.1",
     "imba": "^2.0.0-alpha.199"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
